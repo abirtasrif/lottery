@@ -105,7 +105,7 @@ const LotteryApp = () => {
       <h2 className="text-2xl font-bold mb-2 text-blue-600 mt-10">
         Generate Lottery Result
       </h2>
-      <h2 className="text-lg italic mb-2 text-blue-600/60">
+      <h2 className="italic mb-2 text-blue-600/60">
         Enter number of winner you want in below input field
       </h2>
       <div className="max-w-md mb-4 flex flex-row gap-3">
@@ -116,7 +116,7 @@ const LotteryApp = () => {
             setWinnerCount(e.target.value ? parseInt(e.target.value) : "")
           }
           placeholder="Enter number of winners"
-          className="px-3 py-2 border border-gray-300 rounded"
+          className="px-3 py-2 border border-gray-300 rounded max-w-20"
         />
         <button
           onClick={rollWinners}
