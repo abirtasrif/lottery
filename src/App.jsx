@@ -14,8 +14,19 @@ const LotteryApp = () => {
   const [timestamp, setTimestamp] = useState("");
 
   const formatDate = (date) => {
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    return new Intl.DateTimeFormat("en-GB", options).format(date);
+    const dateOptions = { day: "2-digit", month: "short", year: "numeric" };
+    const timeOptions = { hour: "2-digit", minute: "2-digit", hour12: true };
+
+    const formattedDate = new Intl.DateTimeFormat("en-GB", dateOptions).format(
+      date
+    );
+    const formattedTime = new Intl.DateTimeFormat("en-GB", timeOptions).format(
+      date
+    );
+    const timezoneOffset = -date.getTimezoneOffset() / 60;
+    const gmtOffset = `GMT${timezoneOffset >= 0 ? "+" : ""}${timezoneOffset}`;
+
+    return `${formattedDate}, ${formattedTime} ${gmtOffset}`;
   };
 
   const addNameField = () => {
